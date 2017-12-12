@@ -7,13 +7,25 @@ const app = express();
 
 //env
 require('dotenv').config();
-//require mongoDB
 require('./config/database');
 
-app.use(logger('dev'))
-app.use(express.static(path.join(__dirname, 'build')))
-app.use(bodyParser.json())
-app.use(bodyParser.urlencoded({extended: true}))
+
+app.use(logger('dev'));
+
+// Configure both serve-favicon & static middlewares
+// to serve from the production 'build' folder
+
+app.use(express.static(path.join(__dirname, 'build')));
+
+app.use(bodyParser.json());
+
+// Mount our custom auth middleware
+app.use(require('./config/auth'));
+
+// Put API routes here, before the "catch all" route
+app.use('/api/users', require('./routes/api/users'));
+
+
 
 
 app.get('/*', (req, res) => {
