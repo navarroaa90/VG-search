@@ -6,11 +6,13 @@ import {
   Redirect
 } from 'react-router-dom';
 import './App.css';
+import NavBar from '../../components/NavBar/NavBar';
 import GamePage from '../GamePage/GamePage';
 import SignupPage from '../SignupPage/SignupPage';
 import LoginPage from '../LoginPage/LoginPage';
 import userService from '../../utils/userService';
-
+import HomePage from '../HomePage/HomePage';
+import GameSearchPage from '../GameSearchPage/GameSearchPage';
 
 class App extends Component {
   constructor() {
@@ -48,7 +50,19 @@ class App extends Component {
        <Router>
          <Switch>
         <Route exact path='/' render={() => 
-          <GamePage 
+          <HomePage
+          user={this.state.user}
+          handleLogout={this.handleLogout}
+          />
+      }/>
+      <Route exact path='/search' render={() => 
+          <GamePage
+          user={this.state.user}
+          handleLogout={this.handleLogout}
+          />
+      }/>
+      <Route exact path='/gamesearch' render={() => 
+          <GameSearchPage
           user={this.state.user}
           handleLogout={this.handleLogout}
           />
