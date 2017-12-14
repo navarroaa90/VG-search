@@ -2,7 +2,7 @@ import React from 'react';
 import {Link} from 'react-router-dom';
 import './GamePage.css';
 import NavBar from '../../components/NavBar/NavBar';
-
+import CSearchForm from '../../components/CSearchForm/CSearch'
 
 const GamePage = (props) => {
     return (
@@ -12,8 +12,8 @@ const GamePage = (props) => {
            &nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
            <Link className='game-search' to="/gamesearch">Game Search</Link><br/>
            <h1> Character Search</h1>
-
-        </div>
+           <CSearchForm/>
+         </div>
     )
 }
 

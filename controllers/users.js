@@ -35,6 +35,12 @@ function createJWT(user) {
     {expiresIn: '24h'}
   );
 }
+// delete code below
+// function test(req,res) {
+//   console.log('i like coconuts')
+//   request()
+//   res.end('jon you are cool')
+// }
 
 module.exports = {
   signup,

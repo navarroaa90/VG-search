@@ -18,8 +18,9 @@ class App extends Component {
   constructor() {
     super();
     this.state = {
-      Character: []
+      Character: null
     }
+
   }
 
   /*----- callback methods --------*/
@@ -41,12 +42,18 @@ class App extends Component {
   componentDidMount() {
     let user = userService.getUser();
     this.setState({user});
+   
+    // fetch("/api/api/character")
+    // .then(data => data.json())
+    // .then(json => console.log(json))
   }
+
 
   render() {
     return (
       <div className="App">
-       <header className='header-footer'> VG Search</header>
+       <header className='header-footer'> 
+       </header>
        <Router>
          <Switch>
         <Route exact path='/' render={() => 

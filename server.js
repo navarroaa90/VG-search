@@ -24,7 +24,7 @@ app.use(require('./config/auth'));
 
 // Put API routes here, before the "catch all" route
 app.use('/api/users', require('./routes/api/users'));
-
+app.use('/api/characters', require('./routes/api/api'))
 
 
 
