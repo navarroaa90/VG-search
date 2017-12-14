@@ -13,18 +13,25 @@ class CSearchForm extends Component {
     
     handleSubmit(e){
       e.preventDefault()
-      console.log('submiiting');
+      console.log('submiiting', this.state.name);
       fetch('/api/characters', {
         method: 'POST',
         headers: new Headers({
           'Content-Type': 'application/json',
 
         }),
-        body: JSON.stringify({test: 'hello'})     
+        body: JSON.stringify({name: this.state.name})     
       })
       .then(res => res.json())
       .then(res => console.log(res))
       .catch(err => console.log(err))
+    }
+
+    handleChange(field, e) {
+      this.setState({
+        // Using ES2015 Computed Property Names
+        [field]: e.target.value
+      });
     }
    
    
