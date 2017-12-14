@@ -30,11 +30,6 @@ function getCharacterData (req, res) {
 
             return res.json(parsedBody.results)
         
-
-            // var searchResults = JSON.parse(body);
-            // if (searchResults.status === 400) {
-            //     return res.json(searchResults).status(404);
-            // }
         }
     );
 }

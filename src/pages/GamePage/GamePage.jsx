@@ -4,17 +4,25 @@ import './GamePage.css';
 import NavBar from '../../components/NavBar/NavBar';
 import CSearchForm from '../../components/CSearchForm/CSearch'
 
+
 const GamePage = (props) => {
     return (
         <div className="GamePage-game">
-                <NavBar user={props.user} handleLogout={props.handleLogout} />
-           <Link className='home-link' to="/">Home</Link>
-           &nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
-           <Link className='game-search' to="/gamesearch">Game Search</Link><br/>
-           <h1> Character Search</h1>
-           <CSearchForm/>
-         </div>
+            <br/>
+            <br/>
+            <div>
+                <ul>
+                    { console.log(props)}
+                    {props.characters.length ? props.characters.map((character, idx) => {
+                        return <li key={idx} >{character}</li>
+                    }): <h1>Loading</h1>}
+                </ul>
+            </div>
+        </div>
     )
 }
 
 export default GamePage;
+
+
+{/* <div className="card-block"> <img className="card-img-top" src={characters.image} /> <p className="card-title" key={idx}>{characters.name}</p> <p className="card-text">{characters.deck} */}

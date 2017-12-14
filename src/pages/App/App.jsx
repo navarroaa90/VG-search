@@ -13,7 +13,7 @@ import LoginPage from '../LoginPage/LoginPage';
 import userService from '../../utils/userService';
 import HomePage from '../HomePage/HomePage';
 import GameSearchPage from '../GameSearchPage/GameSearchPage';
-
+import CSearch from '../../components/CSearchForm/CSearch'
 class App extends Component {
   constructor() {
     super();
@@ -43,9 +43,9 @@ class App extends Component {
     let user = userService.getUser();
     this.setState({user});
    
-    // fetch("/api/api/character")
+    // fetch("/api/characters")
     // .then(data => data.json())
-    // .then(json => console.log(json))
+    // .then(data => this.setState({character: data}))
   }
 
 
@@ -55,6 +55,7 @@ class App extends Component {
        <header className='header-footer'> 
        </header>
        <Router>
+         {/* <NavBar user={props.user} handleLogout={props.handleLogout}/> */}
          <Switch>
         <Route exact path='/' render={() => 
           <HomePage
@@ -62,10 +63,11 @@ class App extends Component {
           handleLogout={this.handleLogout}
           />
       }/>
-      <Route exact path='/search' render={() => 
-          <GamePage
+      <Route exact path='/search' render={(props) => 
+          <CSearch 
           user={this.state.user}
           handleLogout={this.handleLogout}
+        
           />
       }/>
       <Route exact path='/gamesearch' render={() => 
