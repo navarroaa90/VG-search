@@ -7,11 +7,9 @@
     max-width: 414px;
     max-height: 300px;
 }
-
 .search-title {
     font-family: 'Play', sans-serif;
 }
-
 .character-card {
     box-shadow: 6px 8px 9px 1px;
 }
