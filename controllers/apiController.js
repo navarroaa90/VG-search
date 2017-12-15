@@ -1,6 +1,6 @@
 var request = require('request');
 
-function getCharacterData (req, res) {
+function getCharacterData(req, res) {
     var name = req.body.name;
 
     // var url = `https://www.giantbomb.com/api/characters/?api_key=${process.env.GIANTBOMB_KEY}&format=json&filter=name:zelda`
@@ -12,11 +12,11 @@ function getCharacterData (req, res) {
 
     request(
         {
-            url: url, 
+            url: url,
             headers: {
                 'User-Agent': 'request'
             }
-        }, 
+        },
         (err, response, body) => {
             if (err) {
                 console.log('err =', err);
@@ -29,7 +29,7 @@ function getCharacterData (req, res) {
             var parsedBody = JSON.parse(body)
 
             return res.json(parsedBody.results)
-        
+
         }
     );
 }

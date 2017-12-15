@@ -24,22 +24,22 @@ class App extends Component {
   /*----- callback methods --------*/
   handleLogout = () => {
     userService.logout();
-    this.setState({user: null});
+    this.setState({ user: null });
   }
 
   handleSignup = () => {
-    this.setState({user: userService.getUser()});
+    this.setState({ user: userService.getUser() });
   }
 
   handleLogin = () => {
-    this.setState({user: userService.getUser()});
+    this.setState({ user: userService.getUser() });
   }
 
-/*---- Lifecycle Methods ----*/
+  /*---- Lifecycle Methods ----*/
 
   componentDidMount() {
     let user = userService.getUser();
-    this.setState({user});
+    this.setState({ user });
   }
 
 
@@ -47,53 +47,53 @@ class App extends Component {
     console.log('app getuser =', userService.getUser())
     return (
       <div className="App">
-       <header className='header-footer'> 
-       </header>
-      
-       <NavBar user={this.state.user} handleLogout={this.handleLogout} />
-         <Switch>
-        <Route exact path='/' render={() => 
-          <HomePage
-          user={this.state.user}
-          handleLogout={this.handleLogout}
-          />
-      }/>
-      <Route exact path='/search' render={(props) =>(
-        !userService.getUser() ?
-        <Redirect to='/' />
-        :
-        <CSearch 
-        user={this.state.user}
-        handleLogout={this.handleLogout} 
-        />
-      
-      )} />
-      {/* <Route exact path='/gamesearch' render={() => 
+        <header className='header-footer'>
+        </header>
+
+        <NavBar user={this.state.user} handleLogout={this.handleLogout} />
+        <Switch>
+          <Route exact path='/' render={() =>
+            <HomePage
+              user={this.state.user}
+              handleLogout={this.handleLogout}
+            />
+          } />
+          <Route exact path='/search' render={(props) => (
+            !userService.getUser() ?
+              <Redirect to='/' />
+              :
+              <CSearch
+                user={this.state.user}
+                handleLogout={this.handleLogout}
+              />
+
+          )} />
+          {/* <Route exact path='/gamesearch' render={() => 
           <GameSearchPage
           user={this.state.user}
           handleLogout={this.handleLogout}
           />
       }/> */}
-      <Route exact path='/signup' render={(props) => (
+          <Route exact path='/signup' render={(props) => (
             userService.getUser() ?
-            <Redirect to='/' />
-            :
-            <SignupPage
+              <Redirect to='/' />
+              :
+              <SignupPage
                 {...props}
                 handleSignup={this.handleSignup}
               />
-      )}/>
-            <Route exact path='/login' render={(props) => (
+          )} />
+          <Route exact path='/login' render={(props) => (
             userService.getUser() ?
-              <Redirect to='/' /> 
+              <Redirect to='/' />
               :
               <LoginPage
                 {...props}
                 handleLogin={this.handleLogin}
               />
-            )}/>
-          </Switch>
-        
+          )} />
+        </Switch>
+
       </div>
     );
   }
