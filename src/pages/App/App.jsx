@@ -44,6 +44,7 @@ class App extends Component {
 
 
   render() {
+    console.log('app getuser =', userService.getUser())
     return (
       <div className="App">
        <header className='header-footer'> 
@@ -57,13 +58,16 @@ class App extends Component {
           handleLogout={this.handleLogout}
           />
       }/>
-      <Route exact path='/search' render={(props) => 
-          <CSearch 
-          user={this.state.user}
-          handleLogout={this.handleLogout}
-        
-          />
-      }/>
+      <Route exact path='/search' render={(props) =>(
+        !userService.getUser() ?
+        <Redirect to='/' />
+        :
+        <CSearch 
+        user={this.state.user}
+        handleLogout={this.handleLogout} 
+        />
+      
+      )} />
       {/* <Route exact path='/gamesearch' render={() => 
           <GameSearchPage
           user={this.state.user}

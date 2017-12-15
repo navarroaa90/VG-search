@@ -3,6 +3,7 @@ import {Link} from 'react-router-dom';
 import './CSearch.css'
 import {Card, Row, Col} from 'react-materialize';
 
+
 class CSearchForm extends Component {
     constructor(props) {
       super(props);
@@ -50,7 +51,8 @@ class CSearchForm extends Component {
     // }
    
    
-    render() {
+    render(props) {
+      if (this.state.image) {
       return (
         <div>
            <Link className='home-link' to="/">Home</Link>
@@ -66,11 +68,12 @@ class CSearchForm extends Component {
         </div>
         </div>
       </form>
-          <Row>
+      <div>
+          <Row >
             <Col m={4}></Col>
             <Col m={4}>
-          <Card>
-          <img className="card-img-top"src={this.state.image}/>
+          <Card >
+          <img className="card-img-top"src={this.state.image} />
           <p className="card-title">{this.state.name}</p>
           <p className="card-text">{this.state.deck}</p>
          </Card>
@@ -78,9 +81,29 @@ class CSearchForm extends Component {
          <Col m={4}></Col>
          </Row>
         </div>
+        </div>
       );
-    };
-  
+    } else {
+      return (
+        <div>
+        <Link className='home-link' to="/">Home</Link>
+             <h3 className='search-title'> Character Search</h3>
+     
+     <form className="form-horizontal" onSubmit={(e) => this.handleSubmit(e)} >
+     <div>
+     <div className="searchfield ">
+       <input className="searchbar" placeholder="Discover A Character Here!" ref='name'  />
+       <div className="col-sm-12 text-center">
+           <button className="btn btn-default">Search</button>&nbsp;&nbsp;
+         </div>
+     </div>
+     </div>
+   </form>
+   <div></div>
+        </div>
+        );
+      }
+    }
   }
    export default CSearchForm;
 
