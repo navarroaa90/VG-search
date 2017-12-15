@@ -1,8 +1,10 @@
 .NavBar-welcome {
-    color: black;
+    color: red;
+    
   }
 .NavBar-link {
   display: flex;
   justify-content: flex-end;
-  
+ background: black;
 }
+

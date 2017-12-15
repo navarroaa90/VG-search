@@ -4,9 +4,9 @@ function getCharacterData (req, res) {
     var name = req.body.name;
 
     // var url = `https://www.giantbomb.com/api/characters/?api_key=${process.env.GIANTBOMB_KEY}&format=json&filter=name:zelda`
-    var baseUrl = 'https://www.giantbomb.com/api/characters/?api_key=3f22e2b62a3e245183e020614f485c719decc38c&format=json';
+    var baseUrl = `https://www.giantbomb.com/api/characters/?api_key=${process.env.GIANTBOMB_KEY}&format=json`;
     var filters = '&filter=name:' + name;
-    var fieldList = '&field_list=name,id,image,deck'
+    var fieldList = '&field_list=name,id,image,deck,first_appeared_in_game'
 
     var url = baseUrl + filters + fieldList;
 

@@ -1,18 +1,16 @@
 import React, { Component } from 'react';
 import {
-  BrowserRouter as Router,
   Switch,
   Route,
   Redirect
 } from 'react-router-dom';
 import './App.css';
 import NavBar from '../../components/NavBar/NavBar';
-import GamePage from '../GamePage/GamePage';
 import SignupPage from '../SignupPage/SignupPage';
 import LoginPage from '../LoginPage/LoginPage';
 import userService from '../../utils/userService';
 import HomePage from '../HomePage/HomePage';
-import GameSearchPage from '../GameSearchPage/GameSearchPage';
+// import GameSearchPage from '../GameSearchPage/GameSearchPage';
 import CSearch from '../../components/CSearchForm/CSearch'
 class App extends Component {
   constructor() {
@@ -42,10 +40,6 @@ class App extends Component {
   componentDidMount() {
     let user = userService.getUser();
     this.setState({user});
-   
-    // fetch("/api/characters")
-    // .then(data => data.json())
-    // .then(data => this.setState({character: data}))
   }
 
 
@@ -54,8 +48,8 @@ class App extends Component {
       <div className="App">
        <header className='header-footer'> 
        </header>
-       <Router>
-         {/* <NavBar user={props.user} handleLogout={props.handleLogout}/> */}
+      
+       <NavBar user={this.state.user} handleLogout={this.handleLogout} />
          <Switch>
         <Route exact path='/' render={() => 
           <HomePage
@@ -70,26 +64,32 @@ class App extends Component {
         
           />
       }/>
-      <Route exact path='/gamesearch' render={() => 
+      {/* <Route exact path='/gamesearch' render={() => 
           <GameSearchPage
           user={this.state.user}
           handleLogout={this.handleLogout}
           />
-      }/>
-      <Route exact path='/signup' render={(props) => 
-              <SignupPage
+      }/> */}
+      <Route exact path='/signup' render={(props) => (
+            userService.getUser() ?
+            <Redirect to='/' />
+            :
+            <SignupPage
                 {...props}
                 handleSignup={this.handleSignup}
               />
-            }/>
-            <Route exact path='/login' render={(props) => 
+      )}/>
+            <Route exact path='/login' render={(props) => (
+            userService.getUser() ?
+              <Redirect to='/' /> 
+              :
               <LoginPage
                 {...props}
                 handleLogin={this.handleLogin}
               />
-            }/>
+            )}/>
           </Switch>
-        </Router>
+        
       </div>
     );
   }

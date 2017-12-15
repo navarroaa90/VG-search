@@ -1,19 +1,18 @@
-import React from 'react'
-import {Link} from 'react-router-dom';
-import NavBar from '../../components/NavBar/NavBar';
+// import React from 'react'
+// import {Link} from 'react-router-dom';
 
-const GameSearchPage = (props) => {
-    return(
-        <div>
-           <NavBar user={props.user} handleLogout={props.handleLogout} />
-           <Link className='home-link' to="/">Home</Link>
-           &nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
-           <Link className='character-search' to="/search">Character Search</Link> <br/>
-           <h1> Game Search </h1>
+
+// const GameSearchPage = (props) => {
+//     return(
+//         <div>
+//            <Link className='home-link' to="/">Home</Link>
+//            &nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+//            <Link className='character-search' to="/search">Character Search</Link> <br/>
+//            <h1> Game Search </h1>
     
 
-        </div>
-    )
-}
+//         </div>
+//     )
+// }
 
-export default GameSearchPage
+// export default GameSearchPage

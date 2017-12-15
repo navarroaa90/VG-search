@@ -1,9 +1,7 @@
 import React, {Component} from 'react';
-import GamePage from '../../pages/GamePage/GamePage'
 import {Link} from 'react-router-dom';
-import NavBar from '../../components/NavBar/NavBar';
-
-
+import './CSearch.css'
+import {Card, Row, Col} from 'react-materialize';
 
 class CSearchForm extends Component {
     constructor(props) {
@@ -11,11 +9,10 @@ class CSearchForm extends Component {
       this.state = {
         name : [],
         image: '',
-        deck: [],
-        description: []
+        deck: []
       }
     }
-    
+  
     handleSubmit(e){
       e.preventDefault()
       const formData = {
@@ -36,7 +33,8 @@ class CSearchForm extends Component {
         this.setState({
           name: res[0].name,
           image: res[0].image.medium_url,
-          deck: res[0].deck
+          deck: res[0].deck,
+          games: res[0].games
         })
         console.log(this.state.image)
       })
@@ -55,43 +53,38 @@ class CSearchForm extends Component {
     render() {
       return (
         <div>
-                   <NavBar />
            <Link className='home-link' to="/">Home</Link>
-           &nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
-           <Link className='game-search' to="/gamesearch">Game Search</Link><br/>
-                <h1> Character Search</h1>
+                <h3 className='search-title'> Character Search</h3>
         
         <form className="form-horizontal" onSubmit={(e) => this.handleSubmit(e)} >
-        <div className="form-group">
-        <div className="col-sm-12">
-          <input type="name" className="form-control" placeholder="name" ref='name'  />
+        <div>
+        <div className="searchfield ">
+          <input className="searchbar" placeholder="Discover A Character Here!" ref='name'  />
           <div className="col-sm-12 text-center">
               <button className="btn btn-default">Search</button>&nbsp;&nbsp;
             </div>
         </div>
         </div>
       </form>
-      <div>
-          {/* <ul>
-              {this.state.name ? this.state.name.map((character, idx) => {
-                  return <li key={idx} >{character}</li>
-              }): <h1>Loading</h1>}
-          </ul> */}
-          <h1>{this.state.name}</h1>
-          <h2>{this.state.deck}</h2>
-          <img src={this.state.image}/>
-          <body>{this.state.description}</body>
-          </div>
-     
-      </div>
+          <Row>
+            <Col m={4}></Col>
+            <Col m={4}>
+          <Card>
+          <img className="card-img-top"src={this.state.image}/>
+          <p className="card-title">{this.state.name}</p>
+          <p className="card-text">{this.state.deck}</p>
+         </Card>
+         </Col>
+         <Col m={4}></Col>
+         </Row>
+        </div>
       );
     };
   
   }
-  
-  export default CSearchForm;
+   export default CSearchForm;
 
   
   
-  // onChange={(e) => this.handleChange('name', e)}
+ 
   

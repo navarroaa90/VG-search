@@ -1,8 +1,18 @@
-/* .home-page {
-    /* background-image: url('https://www.wallpapersbrowse.com/images/4w/4wqbyey.jpg'); */
-    /* height: 1600px;
-    width: 1300px; */
-    /* background-repeat: no-repeat;
+.background {
+    background: url('http://moziru.com/images/8-bit-clipart-3.jpg');
+    width: 600px;
+    height:600px;
+    background-repeat: no-repeat;
     background-size: cover;
-    background-position: center; */
-/* } */ 
+    background-position: center;
+    margin: 0 auto;
+}
+
+.title1{
+    font-family: 'Play', sans-serif;
+    font-weight: 10px; 
+}
+
+.home-text {
+    font-family: 'Raleway', sans-serif;
+}
