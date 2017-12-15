@@ -28,6 +28,7 @@ VGC Search is an App where anyone can search for specific video game characters 
   <h2>Getting Started</h2>
   https://trello.com/b/YhCWbqc9/vgc-search <br>
   https://github.com/navarroaa90/VG-search
+  https://pacific-forest-11727.herokuapp.com/
 
 
  <h2>Future Steps</h2>

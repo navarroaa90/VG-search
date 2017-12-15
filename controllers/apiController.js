@@ -2,8 +2,7 @@ var request = require('request');
 
 function getCharacterData(req, res) {
     var name = req.body.name;
-
-    // var url = `https://www.giantbomb.com/api/characters/?api_key=${process.env.GIANTBOMB_KEY}&format=json&filter=name:zelda`
+     // var url = `https://www.giantbomb.com/api/characters/?api_key=${process.env.GIANTBOMB_KEY}&format=json&filter=name:zelda`
     var baseUrl = `https://www.giantbomb.com/api/characters/?api_key=${process.env.GIANTBOMB_KEY}&format=json`;
     var filters = '&filter=name:' + name;
     var fieldList = '&field_list=name,id,image,deck,first_appeared_in_game'
@@ -23,7 +22,6 @@ function getCharacterData(req, res) {
                 res.status(400).json('cant perform query');
             }
 
-            // console.log('response = ', response)
             console.log('body =', body)
 
             var parsedBody = JSON.parse(body)
