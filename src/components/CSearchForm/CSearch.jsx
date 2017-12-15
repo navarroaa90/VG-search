@@ -72,7 +72,7 @@ class CSearchForm extends Component {
           <Row >
             <Col m={4}></Col>
             <Col m={4}>
-          <Card >
+          <Card className='character-card'>
           <img className="card-img-top"src={this.state.image} />
           <p className="card-title">{this.state.name}</p>
           <p className="card-text">{this.state.deck}</p>
