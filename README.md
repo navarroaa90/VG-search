@@ -22,6 +22,7 @@ VGC Search is an App where anyone can search for specific video game characters 
   <li>Express</li>
   <li>React</li>
   <li>NodeJS</li>
+  <li>Materialize</li>
   </ul>
 
   <h2>Getting Started</h2>
